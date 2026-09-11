@@ -2,6 +2,30 @@
 
 A Ratatui observatory for the stars above you. Warm instrument markings, dark violet panels, drifting lavender hues, and arcane geometric glyphs give it a retro science-fiction feel. No special icon font required; use a Unicode terminal with true color, ideally 120 × 40 or larger.
 
+## Install and run
+
+On Linux or macOS, install [Rust and Cargo](https://rustup.rs) first (Rust 1.85
+or newer is required for the 2024 edition). You also need `curl`, `tar`, and a
+native linker/toolchain for Rust builds.
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/Brasilius/astro-analysis/main/install.sh | sh
+export PATH="$HOME/.local/bin:$PATH"
+astro-analysis
+```
+
+The installer builds the latest `main` source with the committed dependency lockfile
+and installs the executable in `~/.local/bin`, without sudo. Add the PATH line to
+your shell configuration to keep the command available in new terminals. To choose
+another directory, set `ASTRO_ANALYSIS_INSTALL_DIR` to an absolute path on the `sh`
+side of the pipeline. Run the installer again to update; remove the installed
+`astro-analysis` executable to uninstall.
+
+Use `astro-analysis --demo` for a deterministic demo or `astro-analysis --offline`
+to launch without network requests. The installer itself needs internet access.
+
+## Run from source
+
 ```sh
 cargo run --release -- --demo
 cargo run --release
